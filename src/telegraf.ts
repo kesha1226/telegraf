@@ -216,7 +216,7 @@ export class Telegraf<C extends Context = Context> extends Composer<C> {
   private startPolling(allowedUpdates: tt.UpdateType[] = []) {
     this.polling = new Polling(this.telegram, allowedUpdates)
     return this.polling.loop(async (update) => {
-      await this.handleUpdate(update)
+      this.handleUpdate(update)
     })
   }
 
